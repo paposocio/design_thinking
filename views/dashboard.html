@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href='./dashboard.css' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <main>
+    <header class="py-3 border-bottom border-3">
+      <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
+
+        <div class="d-flex align-items-center ms-2">
+          <img src="./logo_universidad.png" alt="logo_universidad" width="50">
+          <h1 class="fs-3">Planeador Horarios</h1>
+        </div>
+
+        <div class="d-flex align-items-center">
+          <form class="w-100 me-3">
+            <input type="search" class="form-control" placeholder="Buscar..." aria-label="Search">
+          </form>
+
+          <div class="flex-shrink-0 dropdown">
+            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <img
+                src="https://static.vecteezy.com/system/resources/previews/003/715/527/non_2x/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-vector.jpg"
+                alt="mdo" width="32" height="32" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+              <li><a class="dropdown-item" href="#">Opcion 1...</a></li>
+              <li><a class="dropdown-item" href="#">Configuracion</a></li>
+              <li><a class="dropdown-item" href="#">Perfil</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-auto bg-light fixed-start">
+          <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
+            <ul
+              class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
+              <li class="nav-item">
+                <a href="#" class="nav-link py-3 px-2 link-dark" title="" data-bs-toggle="tooltip"
+                  data-bs-placement="right">
+                  <i class="bi-house fs-2"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link py-3 px-2 link-dark" title="" data-bs-toggle="tooltip"
+                  data-bs-placement="right" data-bs-original-title="Dashboard">
+                  <i class="bi-speedometer2 fs-2"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link py-3 px-2 link-dark" title="" data-bs-toggle="tooltip"
+                  data-bs-placement="right" data-bs-original-title="Orders">
+                  <i class="bi-table fs-2"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link py-3 px-2 link-dark" title="" data-bs-toggle="tooltip"
+                  data-bs-placement="right" data-bs-original-title="Products">
+                  <i class="bi-heart fs-2"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link py-3 px-2 link-dark" title="" data-bs-toggle="tooltip"
+                  data-bs-placement="right" data-bs-original-title="Customers">
+                  <i class="bi-people fs-2"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm p-3 min-vh-100">
+          <div class="container-fluid px-5 theme-showcase">
+            <h1>Calendario</h1>
+            <div id="holder" class="row"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fab-container">
+      <div class="fab shadow">
+        <div class="fab-content">
+          <i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i>
+        </div>
+      </div>
+      <div class="sub-button shadow">
+        <a>
+          <i class="fa-solid fa-list-check fa-sm" style="color: #ffffff;"></i> </a>
+      </div>
+      <div class="sub-button shadow">
+        <a>
+          <i class="fa-solid fa-bell fa-sm" style="color: #ffffff;"></i> </a>
+      </div>
+      <div class="sub-button shadow">
+        <a>
+          <i class="fa-solid fa-people-group fa-sm" style="color: #ffffff;"></i> </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal de Bootstrap 5 para eventos -->
+  <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="eventModalLabel">Título del Evento</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Se llenará dinámicamente con la info del evento -->
+          <div id="eventDetails">
+            <!-- Hora -->
+            <p><strong>Hora:</strong> <span id="eventHour"></span></p>
+            <!-- Lugar -->
+            <p><strong>Lugar:</strong> <span id="eventPlace"></span></p>
+            <!-- Detalles adicionales -->
+            <p><strong>Detalles adicionales:</strong></p>
+            <p id="eventExtra"></p>
+            <!-- Imágenes del lugar -->
+            <div id="eventImages" class="mb-2">
+              <strong>Imágenes del lugar:</strong><br>
+            </div>
+            <!-- Link adicional -->
+            <p><strong>Link:</strong> <a href="#" id="eventLink" target="_blank"></a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+
+
+<script type="text/tmpl" id="tmpl">
+  {{ 
+  var date = date || new Date(),
+      month = date.getMonth(), 
+      year = date.getFullYear(), 
+      first = new Date(year, month, 1), 
+      last = new Date(year, month + 1, 0),
+      startingDay = first.getDay(), 
+      thedate = new Date(year, month, 1 - startingDay),
+      dayclass = lastmonthcss,
+      today = new Date(),
+      i, j; 
+  if (mode === 'week') {
+    thedate = new Date(date);
+    thedate.setDate(date.getDate() - date.getDay());
+    first = new Date(thedate);
+    last = new Date(thedate);
+    last.setDate(last.getDate()+6);
+  } else if (mode === 'day') {
+    thedate = new Date(date);
+    first = new Date(thedate);
+    last = new Date(thedate);
+    last.setDate(thedate.getDate() + 1);
+  }
+  
+  }}
+  <table class="calendar-table table table-condensed table-tight">
+    <thead>
+      <tr>
+        <td colspan="7" style="text-align: center">
+          <table style="white-space: nowrap; width: 100%">
+            <tr>
+              <td style="text-align: left;">
+                <span class="btn-group">
+                  <button class="js-cal-prev btn btn-default"><</button>
+                  <button class="js-cal-next btn btn-default">></button>
+                </span>
+                <button class="js-cal-option btn btn-default {{: first.toDateInt() <= today.toDateInt() && today.toDateInt() <= last.toDateInt() ? 'active':'' }}" data-date="{{: today.toISOString()}}" data-mode="month">{{: todayname }}</button>
+              </td>
+              <td>
+                <span class="btn-group btn-group-lg">
+                  {{ if (mode !== 'day') { }}
+                    {{ if (mode === 'month') { }}<button class="js-cal-option btn btn-link" data-mode="year">{{: months[month] }}</button>{{ } }}
+                    {{ if (mode ==='week') { }}
+                      <button class="btn btn-link disabled">{{: shortMonths[first.getMonth()] }} {{: first.getDate() }} - {{: shortMonths[last.getMonth()] }} {{: last.getDate() }}</button>
+                    {{ } }}
+                    <button class="js-cal-years btn btn-link">{{: year}}</button> 
+                  {{ } else { }}
+                    <button class="btn btn-link disabled">{{: date.toDateString() }}</button> 
+                  {{ } }}
+                </span>
+              </td>
+              <td style="text-align: right">
+                <span class="btn-group">
+                  <button class="js-cal-option btn btn-default {{: mode==='year'? 'active':'' }}" data-mode="year">Año</button>
+                  <button class="js-cal-option btn btn-default {{: mode==='month'? 'active':'' }}" data-mode="month">Mes</button>
+                  <button class="js-cal-option btn btn-default {{: mode==='week'? 'active':'' }}" data-mode="week">Semana</button>
+                  <button class="js-cal-option btn btn-default {{: mode==='day'? 'active':'' }}" data-mode="day">Dia</button>
+                </span>
+              </td>
+            </tr>
+          </table>
+          
+        </td>
+      </tr>
+    </thead>
+    {{ if (mode ==='year') {
+      month = 0;
+    }}
+    <tbody>
+      {{ for (j = 0; j < 3; j++) { }}
+      <tr>
+        {{ for (i = 0; i < 4; i++) { }}
+        <td class="calendar-month month-{{:month}} js-cal-option" data-date="{{: new Date(year, month, 1).toISOString() }}" data-mode="month">
+          {{: months[month] }}
+          {{ month++;}}
+        </td>
+        {{ } }}
+      </tr>
+      {{ } }}
+    </tbody>
+    {{ } }}
+    {{ if (mode ==='month' || mode ==='week') { }}
+    <thead>
+      <tr class="c-weeks">
+        {{ for (i = 0; i < 7; i++) { }}
+          <th class="c-name">
+            {{: days[i] }}
+          </th>
+        {{ } }}
+      </tr>
+    </thead>
+    <tbody>
+      {{ for (j = 0; j < 6 && (j < 1 || mode === 'month'); j++) { }}
+      <tr>
+        {{ for (i = 0; i < 7; i++) { }}
+        {{ if (thedate > last) { dayclass = nextmonthcss; } else if (thedate >= first) { dayclass = thismonthcss; } }}
+        <td class="calendar-day {{: dayclass }} {{: thedate.toDateCssClass() }} {{: date.toDateCssClass() === thedate.toDateCssClass() ? 'selected':'' }} {{: daycss[i] }} js-cal-option" data-date="{{: thedate.toISOString() }}">
+          <div class="date">{{: thedate.getDate() }}</div>
+          {{ thedate.setDate(thedate.getDate() + 1);}}
+        </td>
+        {{ } }}
+      </tr>
+      {{ } }}
+    </tbody>
+    {{ } }}
+    {{ if (mode ==='day') { }}
+    <tbody>
+      <tr>
+        <td colspan="7">
+          <table class="table table-striped table-condensed table-tight-vert" >
+            <thead>
+              <tr>
+                <th> </th>
+                <th style="text-align: center; width: 100%">{{: days[date.getDay()] }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th class="timetitle" >All Day</th>
+                <td class="{{: date.toDateCssClass() }}">  </td>
+              </tr>
+              <tr>
+                <th class="timetitle" >Before 6 AM</th>
+                <td class="time-0-0"> </td>
+              </tr>
+              {{for (i = 6; i < 22; i++) { }}
+              <tr>
+                <th class="timetitle" >{{: i <= 12 ? i : i - 12 }} {{: i < 12 ? "AM" : "PM"}}</th>
+                <td class="time-{{: i}}-0"> </td>
+              </tr>
+              <tr>
+                <th class="timetitle" >{{: i <= 12 ? i : i - 12 }}:30 {{: i < 12 ? "AM" : "PM"}}</th>
+                <td class="time-{{: i}}-30"> </td>
+              </tr>
+              {{ } }}
+              <tr>
+                <th class="timetitle" >After 10 PM</th>
+                <td class="time-22-0"> </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+    {{ } }}
+  </table>
+</script>
+
+
+<script>
+  var $currentPopover = null;
+  $(document).on('shown.bs.popover', function (ev) {
+    var $target = $(ev.target);
+    if ($currentPopover && ($currentPopover.get(0) != $target.get(0))) {
+      $currentPopover.popover('toggle');
+    }
+    $currentPopover = $target;
+  }).on('hidden.bs.popover', function (ev) {
+    var $target = $(ev.target);
+    if ($currentPopover && ($currentPopover.get(0) == $target.get(0))) {
+      $currentPopover = null;
+    }
+  });
+
+
+  //quicktmpl is a simple template language I threw together a while ago; it is not remotely secure to xss and probably has plenty of bugs that I haven't considered, but it basically works
+  //the design is a function I read in a blog post by John Resig (http://ejohn.org/blog/javascript-micro-templating/) and it is intended to be loosely translateable to a more comprehensive template language like mustache easily
+  $.extend({
+    quicktmpl: function (template) { return new Function("obj", "var p=[],print=function(){p.push.apply(p,arguments);};with(obj){p.push('" + template.replace(/[\r\t\n]/g, " ").split("{{").join("\t").replace(/((^|\}\})[^\t]*)'/g, "$1\r").replace(/\t:(.*?)\}\}/g, "',$1,'").split("\t").join("');").split("}}").join("p.push('").split("\r").join("\\'") + "');}return p.join('');") }
+  });
+
+  $.extend(Date.prototype, {
+    //provides a string that is _year_month_day, intended to be widely usable as a css class
+    toDateCssClass: function () {
+      return '_' + this.getFullYear() + '_' + (this.getMonth() + 1) + '_' + this.getDate();
+    },
+    //this generates a number useful for comparing two dates; 
+    toDateInt: function () {
+      return ((this.getFullYear() * 12) + this.getMonth()) * 32 + this.getDate();
+    },
+    toTimeString: function () {
+      var hours = this.getHours(),
+        minutes = this.getMinutes(),
+        hour = (hours > 12) ? (hours - 12) : hours,
+        ampm = (hours >= 12) ? ' pm' : ' am';
+      if (hours === 0 && minutes === 0) { return ''; }
+      if (minutes > 0) {
+        return hour + ':' + minutes + ampm;
+      }
+      return hour + ampm;
+    }
+  });
+
+
+  (function ($) {
+
+    //t here is a function which gets passed an options object and returns a string of html. I am using quicktmpl to create it based on the template located over in the html block
+    var t = $.quicktmpl($('#tmpl').get(0).innerHTML);
+
+    function calendar($el, options) {
+      //actions aren't currently in the template, but could be added easily...
+      $el.on('click', '.js-cal-prev', function () {
+        switch (options.mode) {
+          case 'year': options.date.setFullYear(options.date.getFullYear() - 1); break;
+          case 'month': options.date.setMonth(options.date.getMonth() - 1); break;
+          case 'week': options.date.setDate(options.date.getDate() - 7); break;
+          case 'day': options.date.setDate(options.date.getDate() - 1); break;
+        }
+        draw();
+      }).on('click', '.js-cal-next', function () {
+        switch (options.mode) {
+          case 'year': options.date.setFullYear(options.date.getFullYear() + 1); break;
+          case 'month': options.date.setMonth(options.date.getMonth() + 1); break;
+          case 'week': options.date.setDate(options.date.getDate() + 7); break;
+          case 'day': options.date.setDate(options.date.getDate() + 1); break;
+        }
+        draw();
+      }).on('click', '.js-cal-option', function () {
+        var $t = $(this), o = $t.data();
+        if (o.date) { o.date = new Date(o.date); }
+        $.extend(options, o);
+        draw();
+      }).on('click', '.js-cal-years', function () {
+        var $t = $(this),
+          haspop = $t.data('popover'),
+          s = '',
+          y = options.date.getFullYear() - 2,
+          l = y + 5;
+        if (haspop) { return true; }
+        for (; y < l; y++) {
+          s += '<button type="button" class="btn btn-default btn-lg btn-block js-cal-option" data-date="' + (new Date(y, 1, 1)).toISOString() + '" data-mode="year">' + y + '</button>';
+        }
+        $t.popover({ content: s, html: true, placement: 'auto top' }).popover('toggle');
+        return false;
+      })
+
+        .on('click', '.event', function () {
+          var $t = $(this),
+            index = +($t.attr('data-index')),
+            data, time;
+
+          if (isNaN(index)) {
+            return true;
+          }
+
+          data = options.data[index];
+
+          // Formatear la hora (por ejemplo: "08:00 - 10:00")
+          time = data.start.toTimeString();
+          if (data.end) {
+            time += ' - ' + data.end.toTimeString();
+          }
+
+          // Actualizar el modal con la información del evento
+          $('#eventModalLabel').text(data.title || 'Detalle del Evento');
+          $('#eventHour').text(time);
+          $('#eventPlace').text(data.lugar || 'No especificado');
+          $('#eventExtra').text(data.detalles || '');
+
+          // Limpiar el contenedor de imágenes
+          var $imgContainer = $('#eventImages').empty().append('<strong>Imágenes del lugar:</strong><br>');
+          if (data.images && data.images.length) {
+            data.images.forEach(function (img) {
+              $imgContainer.append('<img src="' + img + '" alt="Imagen del lugar" style="max-width:100%; height:auto; margin:5px 0;"><br>');
+            });
+          } else {
+            $imgContainer.append('<span>No hay imágenes disponibles.</span>');
+          }
+
+          // Actualizar el link (por ejemplo, para clases virtuales)
+          if (data.link) {
+            $('#eventLink').attr('href', data.link).text(data.link);
+          } else {
+            $('#eventLink').attr('href', '#').text('No aplica');
+          }
+
+          // Mostrar el modal usando la API nativa de Bootstrap 5
+          var eventModal = new bootstrap.Modal(document.getElementById('eventModal'));
+          eventModal.show();
+
+          return false;
+        });
+
+
+
+      function dayAddEvent(index, event) {
+        if (!!event.allDay) {
+          monthAddEvent(index, event);
+          return;
+        }
+        var $event = $('<div/>', { 'class': 'event', text: event.title, title: event.title, 'data-index': index }),
+          start = event.start,
+          end = event.end || start,
+          time = event.start.toTimeString(),
+          hour = start.getHours(),
+          timeclass = '.time-22-0',
+          startint = start.toDateInt(),
+          dateint = options.date.toDateInt(),
+          endint = end.toDateInt();
+        if (startint > dateint || endint < dateint) { return; }
+
+        if (!!time) {
+          $event.html('<strong>' + time + '</strong> ' + $event.html());
+        }
+        $event.toggleClass('begin', startint === dateint);
+        $event.toggleClass('end', endint === dateint);
+        if (hour < 6) {
+          timeclass = '.time-0-0';
+        }
+        if (hour < 22) {
+          timeclass = '.time-' + hour + '-' + (start.getMinutes() < 30 ? '0' : '30');
+        }
+        $(timeclass).append($event);
+      }
+
+      function monthAddEvent(index, event) {
+        var $event = $('<div/>', { 'class': 'event', text: event.title, title: event.title, 'data-index': index }),
+          e = new Date(event.start),
+          dateclass = e.toDateCssClass(),
+          day = $('.' + e.toDateCssClass()),
+          empty = $('<div/>', { 'class': 'clear event', html: ' ' }),
+          numbevents = 0,
+          time = event.start.toTimeString(),
+          endday = event.end && $('.' + event.end.toDateCssClass()).length > 0,
+          checkanyway = new Date(e.getFullYear(), e.getMonth(), e.getDate() + 40),
+          existing,
+          i;
+        $event.toggleClass('all-day', !!event.allDay);
+        if (!!time) {
+          $event.html('<strong>' + time + '</strong> ' + $event.html());
+        }
+        if (!event.end) {
+          $event.addClass('begin end');
+          $('.' + event.start.toDateCssClass()).append($event);
+          return;
+        }
+
+        while (e <= event.end && (day.length || endday || options.date < checkanyway)) {
+          if (day.length) {
+            existing = day.find('.event').length;
+            numbevents = Math.max(numbevents, existing);
+            for (i = 0; i < numbevents - existing; i++) {
+              day.append(empty.clone());
+            }
+            day.append(
+              $event.
+                toggleClass('begin', dateclass === event.start.toDateCssClass()).
+                toggleClass('end', dateclass === event.end.toDateCssClass())
+            );
+            $event = $event.clone();
+            $event.html(' ');
+          }
+          e.setDate(e.getDate() + 1);
+          dateclass = e.toDateCssClass();
+          day = $('.' + dateclass);
+        }
+      }
+      function yearAddEvents(events, year) {
+        var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        $.each(events, function (i, v) {
+          if (v.start.getFullYear() === year) {
+            counts[v.start.getMonth()]++;
+          }
+        });
+        $.each(counts, function (i, v) {
+          if (v !== 0) {
+            $('.month-' + i).append('<span class="badge">' + v + '</span>');
+          }
+        });
+      }
+
+      function draw() {
+        $el.html(t(options));
+        //potential optimization (untested), this object could be keyed into a dictionary on the dateclass string; the object would need to be reset and the first entry would have to be made here
+        $('.' + (new Date()).toDateCssClass()).addClass('today');
+        if (options.data && options.data.length) {
+          if (options.mode === 'year') {
+            yearAddEvents(options.data, options.date.getFullYear());
+          } else if (options.mode === 'month' || options.mode === 'week') {
+            $.each(options.data, monthAddEvent);
+          } else {
+            $.each(options.data, dayAddEvent);
+          }
+        }
+      }
+
+      draw();
+    }
+
+    ; (function (defaults, $, window, document) {
+      $.extend({
+        calendar: function (options) {
+          return $.extend(defaults, options);
+        }
+      }).fn.extend({
+        calendar: function (options) {
+          options = $.extend({}, defaults, options);
+          return $(this).each(function () {
+            var $this = $(this);
+            calendar($this, options);
+          });
+        }
+      });
+    })({
+      days: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+      months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+      shortMonths: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
+      date: (new Date()),
+      daycss: ["c-sunday", "", "", "", "", "", "c-saturday"],
+      todayname: "Hoy",
+      thismonthcss: "current",
+      lastmonthcss: "outside",
+      nextmonthcss: "outside",
+      mode: "month",
+      data: []
+    }, jQuery, window, document);
+
+  })(jQuery);
+
+  var data = [],
+    now = new Date(),
+    d = now.getDate(),
+    d1 = d,
+    monthIndex = now.getMonth(),
+    y = now.getFullYear(),
+    i, end, j, c = 1063, c1 = 3329, h, min;
+
+  // Array de nombres de eventos académicos
+  var names = [
+    'Clase completa',
+    'Examen parcial',
+    'Entrega de tarea',
+    'Conferencia',
+    'Seminario',
+    'Reunión de departamento',
+    'Laboratorio',
+    'Taller',
+    'Actividad extracurricular',
+    'Torneo deportivo',
+    'Cita con tutor',
+    'Examen final'
+  ];
+
+  // Array de descripciones o textos para los eventos
+  var slipsum = [
+    "Inicio de semestre: revisión de contenidos y planificación de asignaturas para el nuevo ciclo académico.",
+    "Examen parcial de Matemáticas: repaso intensivo de los temas vistos en clase y resolución de ejercicios prácticos.",
+    "Entrega del proyecto final de Ciencias Sociales, donde se analizarán fenómenos actuales y se presentarán soluciones innovadoras.",
+    "Conferencia sobre innovaciones tecnológicas en la educación, con expertos compartiendo nuevas metodologías y herramientas digitales.",
+    "Seminario interactivo: discusión sobre estrategias de aprendizaje y el uso efectivo de recursos digitales en el aula.",
+    "Reunión de departamento para coordinar actividades académicas, intercambiar ideas y mejorar el plan de estudios.",
+    "Laboratorio de Química: práctica experimental y análisis en equipo para reforzar conceptos teóricos.",
+    "Taller de escritura y comunicación: desarrollo de habilidades para redactar ensayos y trabajos académicos de calidad.",
+    "Actividad extracurricular: visita guiada a museos y centros culturales para complementar el aprendizaje en el aula.",
+    "Torneo deportivo interdepartamental, fomentando la integración y el espíritu competitivo saludable entre estudiantes.",
+    "Cita con tutor para revisar el progreso académico, resolver dudas y planificar estrategias de mejora personalizada.",
+    "Examen final: evaluación integral de los conocimientos adquiridos a lo largo del semestre, abarcando teoría y práctica."
+  ];
+
+  // Array de lugares (ubicaciones)
+  var lugares = [
+    "Aula 101",
+    "Laboratorio de Química",
+    "Auditorio Principal",
+    "Biblioteca",
+    "Campus Virtual",
+    "Sala de Conferencias",
+    "Taller de Innovación",
+    "Centro de Estudiantes"
+  ];
+
+  // Array de detalles adicionales
+  var detallesExtra = [
+    "Revisión de conceptos teóricos y ejercicios prácticos.",
+    "Discusión en grupo y análisis de casos reales.",
+    "Sesión interactiva con exposición de proyectos.",
+    "Debate académico y feedback de expertos.",
+    "Revisión detallada de trabajos y asesoría personalizada.",
+    "Actividades prácticas para consolidar el aprendizaje.",
+    "Sesión de resolución de dudas y planificación de estrategias.",
+    "Encuentro virtual con invitados especiales."
+  ];
+
+  // Array de imágenes (links de ejemplo, personalízalos a tu gusto)
+  var imagenes = [
+    "https://fastly.4sqi.net/img/general/600x600/3113414_gh7Yot5XzfR69P_vsfBJCR26W8bIfAU3j7Z-RkmYYJ0.jpg",
+    "https://static1.educaedu-colombia.com/adjuntos/12/00/35/universidad-central-003537_large.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr2SUtDz-kw5gbAotVXqBbjfU2MUMxa01O3Q&s",
+    "https://static1.educaedu-colombia.com/adjuntos/12/00/35/universidad-central-003538_large.jpg"
+  ];
+
+  // Array de links para clases virtuales u otros
+  var linksVirtuales = [
+    "https://virtualclass.example.com/room1",
+    "https://virtualclass.example.com/room2",
+    "https://virtualclass.example.com/room3"
+  ];
+
+  for (i = 0; i < 500; i++) {
+    // Calcula un desplazamiento para la duración del evento
+    j = Math.max(i % 15 - 10, 0);
+    // Los valores c y c1 se actualizan para simular datos "aleatorios"
+    c = (c * 1063) % 1061;
+    c1 = (c1 * 3329) % 3331;
+    // Se ajusta el día según los valores generados
+    d = (d1 + c + c1) % 839 - 440;
+    // Calcula la hora y los minutos
+    h = i % 36;
+    min = (i % 4) * 15;
+    if (h < 18) {
+      h = 0;
+      min = 0;
+    } else {
+      h = Math.max(h - 24, 0) + 8;
+    }
+    // Si j es cero, no se define el fin del evento
+    end = !j ? null : new Date(y, monthIndex, d + j, h + 2, min);
+
+    data.push({
+      title: names[c1 % names.length],
+      start: new Date(y, monthIndex, d, h, min),
+      end: end,
+      allDay: !(i % 6),
+      text: slipsum[c % slipsum.length],
+      lugar: lugares[c % lugares.length],
+      detalles: detallesExtra[c1 % detallesExtra.length],
+      images: [imagenes[c % imagenes.length]],
+      link: linksVirtuales[c % linksVirtuales.length]
+    });
+  }
+
+  // Ordena los datos por fecha de inicio
+  data.sort(function (a, b) {
+    return (+a.start) - (+b.start);
+  });
+
+  // data debe estar ordenado por fecha de inicio
+  // Se inicializa el calendario pasando el array de datos
+  $('#holder').calendar({
+    data: data
+  });
+
+</script>
+
+<script>
+  var $currentPopover = null;
+  $(document)
+    .on('shown.bs.popover', function (ev) {
+      var $target = $(ev.target);
+      // Si ya hay un popover abierto diferente, lo cerramos
+      if ($currentPopover && $currentPopover.get(0) !== $target.get(0)) {
+        $currentPopover.popover('hide');
+      }
+      $currentPopover = $target;
+
+      // Si no existe el backdrop, lo creamos y asignamos evento para cerrarlo al hacer clic
+      if (!$('.popover-backdrop').length) {
+        $('<div class="popover-backdrop"></div>')
+          .appendTo('body')
+          .css({
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: 'rgba(0,0,0,0.5)',
+            zIndex: 1040  // Asegúrate que esté detrás del popover, que suele ser 1050
+          })
+          .on('click', function () {
+            if ($currentPopover) {
+              $currentPopover.popover('hide');
+            }
+          });
+      }
+    })
+    .on('hidden.bs.popover', function (ev) {
+      var $target = $(ev.target);
+      if ($currentPopover && $currentPopover.get(0) === $target.get(0)) {
+        $currentPopover = null;
+      }
+      // Eliminamos el backdrop al cerrar el popover
+      $('.popover-backdrop').remove();
+    });
+</script>
+
+</html>

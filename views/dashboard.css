@@ -1,0 +1,221 @@
+/* ===============================
+   Estilos del Calendario (menos saturados)
+   =============================== */
+
+/* Fondo general de cada día */
+.calendar-day {
+    background-color: #F2F2F2;
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    height: 80px;
+}
+
+/* Contenedor de la tabla centrado */
+.calendar-table {
+    margin: 0 auto;
+    width: 700px;
+}
+
+/* Día seleccionado: se usa un gris claro neutro */
+.selected {
+    background-color: #ced4da;
+    /* tono suave y neutro */
+    color: #212529;
+}
+
+/* Días fuera del mes: texto en gris medio */
+.outside .date {
+    color: #6c757d;
+}
+
+/* Título de horarios, sin cambios */
+.timetitle {
+    white-space: nowrap;
+    text-align: right;
+}
+
+/* Evento normal: degradado de grises suaves */
+.event {
+    border-top: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da;
+    background-image: linear-gradient(to bottom, #e9ecef 0%, #dee2e6 100%);
+    background-repeat: repeat-x;
+    color: #495057;
+    border-width: 1px;
+    font-size: 0.75em;
+    padding: 0 0.75em;
+    line-height: 2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 1px;
+}
+
+.event.begin {
+    border-left: 1px solid #ced4da;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.event.end {
+    border-right: 1px solid #ced4da;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+/* Evento "all-day": se utiliza un rojo muy suave */
+.event.all-day {
+    border-top: 1px solid #f8d7da;
+    border-bottom: 1px solid #f8d7da;
+    background-image: linear-gradient(to bottom, #f8d7da 0%, #f1b0b7 100%);
+    background-repeat: repeat-x;
+    color: #842029;
+    border-width: 1px;
+}
+
+.event.all-day.begin {
+    border-left: 1px solid #f8d7da;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.event.all-day.end {
+    border-right: 1px solid #f8d7da;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+/* Elemento de relleno para mantener la estructura */
+.event.clear {
+    background: none;
+    border: 1px solid transparent;
+}
+
+/* Reducción de padding en tablas compactas */
+.table-tight>thead>tr>th,
+.table-tight>tbody>tr>th,
+.table-tight>tfoot>tr>th,
+.table-tight>thead>tr>td,
+.table-tight>tbody>tr>td,
+.table-tight>tfoot>tr>td {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.table-tight-vert>thead>tr>th,
+.table-tight-vert>tbody>tr>th,
+.table-tight-vert>tfoot>tr>th,
+.table-tight-vert>thead>tr>td,
+.table-tight-vert>tbody>tr>td,
+.table-tight-vert>tfoot>tr>td {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+
+/* ===============================
+   Estilos del FAB (menos saturados y sin punta)
+   =============================== */
+
+.fab-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    user-select: none;
+    position: fixed;
+    /* Se mantiene en la esquina al hacer scroll */
+    bottom: 30px;
+    right: 30px;
+    transition: all 0.3s ease;
+}
+
+/* Despliegue de los sub-botones al hacer hover sobre el contenedor */
+.fab-container:hover .sub-button:nth-child(2) {
+    transform: translateY(-80px);
+}
+
+.fab-container:hover .sub-button:nth-child(3) {
+    transform: translateY(-140px);
+}
+
+.fab-container:hover .sub-button:nth-child(4) {
+    transform: translateY(-200px);
+}
+
+.fab-container:hover .sub-button:nth-child(5) {
+    transform: translateY(-260px);
+}
+
+.fab-container:hover .sub-button:nth-child(6) {
+    transform: translateY(-320px);
+}
+
+/* FAB principal: color neutro y sin pseudo-elemento para la punta */
+.fab-container .fab {
+    position: relative;
+    height: 70px;
+    width: 70px;
+    background-color: #6c757d;
+    /* tono neutro y menos saturado */
+    border-radius: 50%;
+    /* círculo perfecto */
+    z-index: 2;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+        0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Se elimina el pseudo-elemento que daba la "punta" */
+.fab-container .fab::before {
+    display: none;
+}
+
+.fab-container .fab:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2),
+        0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.fab-container .fab .fab-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.fab-container .fab .fab-content .material-icons {
+    color: #fff;
+    font-size: 48px;
+}
+
+/* Sub-botones: tono neutro claro para diferenciarse del FAB principal */
+.fab-container .sub-button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 10px;
+    right: 10px;
+    height: 50px;
+    width: 50px;
+    background-color: #adb5bd;
+    /* tono más claro y neutro */
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16),
+        0 2px 4px rgba(0, 0, 0, 0.23);
+}
+
+.fab-container .sub-button:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
+        0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.fab-container .sub-button .material-icons {
+    color: #fff;
+    font-size: 24px;
+}
